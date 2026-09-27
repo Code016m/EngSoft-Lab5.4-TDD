@@ -23,5 +23,14 @@ class TestFiltrarLivros(unittest.TestCase):
         self.assertEqual(resultado[0]["autor"], "Machado de Assis")
         self.assertEqual(resultado[1]["autor"], "Machado de Assis")
 
+    def test_filtrar_por_preco(self):
+        livros = lista_livros()
+        resultado = filtrar_livros(
+            livros,
+            {"preco": 25.0}
+        )
+        self.assertEqual(len(resultado), 1)
+        self.assertEqual(resultado[0]["preco"], 25.0)
+
 if __name__ == "__main__":
     unittest.main()
