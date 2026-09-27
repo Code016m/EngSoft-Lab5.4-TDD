@@ -6,14 +6,22 @@ class TestFiltrarLivros(unittest.TestCase):
 
     def test_filtrar_por_titulo(self):
         livros = lista_livros()
-
         resultado = filtrar_livros(
             livros,
             {"titulo": "Dom Casmurro"}
         )
-
         self.assertEqual(len(resultado), 1)
         self.assertEqual(resultado[0]["titulo"], "Dom Casmurro")
+
+    def test_filtrar_por_autor(self):
+        livros = lista_livros()
+        resultado = filtrar_livros(
+            livros,
+            {"autor": "Machado de Assis"}
+        )
+        self.assertEqual(len(resultado), 2)
+        self.assertEqual(resultado[0]["autor"], "Machado de Assis")
+        self.assertEqual(resultado[1]["autor"], "Machado de Assis")
 
 if __name__ == "__main__":
     unittest.main()
